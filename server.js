@@ -18,13 +18,14 @@ function register(event){
 
     if (flag === true){
         alert("Email already Present");
+        document.getElementById("userEmail").value ='';
     }
     else if(userName.length < 1 && userEmail.length <1){
         alert("must filled all fields");
     }
     else if(userPassword.length < 8){
         alert("Password Must be more than 8 digit");
-        // reset();
+        document.getElementById("userPassword").value ="";
     }
     else{
         dataFromLs.push(userData);
