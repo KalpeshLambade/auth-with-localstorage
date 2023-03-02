@@ -37,3 +37,30 @@ function register(event){
         alert("registration Done");
     }
 }
+
+function login(event){
+    event.preventDefault(event);
+    var userEmail =document.getElementById("email").value;
+    var userPassword = document.getElementById("password").value;
+
+    var dataFromLs =JSON.parse(localStorage.getItem("userData"));
+
+    var flag= false;
+
+    for (var i=0 ; i< dataFromLs.length ; i++){
+        if(dataFromLs[i].email === userEmail  && dataFromLs[i].password === userPassword){
+            flag =true;
+        }
+    }
+
+    if(flag){
+        document.getElementById("email").value ="";
+        document.getElementById("password").value ="";
+        window.location.href="/home.html";
+        alert("Login sucessful");
+    }
+    else{
+        alert("Email or Password does not match");
+    }
+
+}
