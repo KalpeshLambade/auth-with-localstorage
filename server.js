@@ -64,3 +64,18 @@ function login(event){
     }
 
 }
+
+function verifyemail(event){
+    event.preventDefault();
+
+    var dataFromLs=JSON.parse(localStorage.getItem("userData"));
+    var emailFromUser =document.getElementById("email").value;
+
+    for(var i=0; i<dataFromLs.length; i++){
+        console.log(dataFromLs[i].email);
+    }
+}
+
+function resetPassword(event){
+    event.preventDefault();
+}
