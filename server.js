@@ -112,7 +112,20 @@ function newPassword(i){
     window.location.href ="/login.html";
     alert("Password Changed , Now Login");
 
+    
+}
 
+function product(){
 
+    var dataFromLs =JSON.parse(localStorage.getItem("product")) || [];
 
+    var userName = document.getElementById("name").value;
+    var userImage= document.getElementById("image").value;
+    var price =document.getElementById("price").value;
+
+    var product ={name:userName, image:userImage, price:price};
+    dataFromLs.push(product);
+
+    localStorage.setItem("product",JSON.stringify(dataFromLs));
+    alert("Added");
 }
