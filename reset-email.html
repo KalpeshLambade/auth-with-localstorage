@@ -8,9 +8,11 @@
   </head>
   <body>
     <h1>Forget Password</h1>
-    <form onsubmit="verifyemail(event)">
+    <div id="change">
       <input type="email" id="email" placeholder="Email" />
-      <input type="submit" value="Continue" />
-    </form>
+      <button onclick="forgotPassword(event)">submit Email</button>
+    </div>
+
+    <script src="/server.js"></script>
   </body>
 </html>
