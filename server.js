@@ -93,7 +93,7 @@ function forgotPassword(event){
     }
 }
 
-function newPassword(i){
+function newPassword(){
     
     var dataFromLs =JSON.parse(localStorage.getItem("userData"));
     var userPassword =document.getElementById("password").value;
