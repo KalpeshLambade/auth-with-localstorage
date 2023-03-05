@@ -56,6 +56,10 @@ function login(event){
     if(flag){
         document.getElementById("email").value ="";
         document.getElementById("password").value ="";
+
+        var user ={};
+        user["current-user-email"]= userEmail;
+        localStorage.setItem("currentUserEmail",JSON.stringify(user));
         window.location.href="/home.html";
         alert("Login sucessful");
     }
