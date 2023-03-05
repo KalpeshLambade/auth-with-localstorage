@@ -7,6 +7,26 @@
     <title>Home</title>
 </head>
 <body>
-    
+    <h1>Home</h1>
+    <div id="logout">
+         
+    </div>
+    <script>
+        function check(){
+            var dataFromLs =JSON.parse(localStorage.getItem("currentUser"));
+            if(dataFromLs){
+                var divForLogout =document.getElementById("logout");
+                var logoutButton =`<button onclick="logout()">Logout</button>`;
+                divForLogout.innerHTML =logoutButton;
+            }
+        }
+        check();
+
+        function logout(){
+            localStorage.removeItem("currentUser");
+            window.location.reload();
+            alert("Logout Successfully done");
+        }
+    </script>
 </body>
 </html>
