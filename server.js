@@ -59,7 +59,7 @@ function login(event){
 
         var user ={};
         user["current-user-email"]= userEmail;
-        localStorage.setItem("currentUserEmail",JSON.stringify(user));
+        localStorage.setItem("currentUser",JSON.stringify(user));
         window.location.href="/home.html";
         alert("Login sucessful");
     }
