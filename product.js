@@ -1,18 +1,20 @@
-window.onload = function(){
+window.onload = function () {
+  var divFromHtml = document.getElementById("product");
+  var products = JSON.parse(localStorage.getItem("product"));
 
-    var divFromHtml =document.getElementById("product");
-    var products =JSON.parse(localStorage.getItem("product"));
+  var array = [];
 
-    var array =[];
+  for (var i = 0; i < products.length; i++) {
+    // console.log(products[i]);
+    array += `<div><img src="${products[i].image}" alt="productImg" /><h2>${products[i].name}</h2><p>${products[i].price}</p><button onclick='addToCart(${JSON.stringify(products[i])})'>Add to cart</button></div>`;
+  }
 
-    for(var i=0; i<products.length; i++){
-        array += `<div><img src="${products[i].image}" alt="product-img"><h2>${products[i].name}</h2><p>${products[i].price}</p><button onclick="addToCart(${JSON.stringify(products[i])})">Add to cart</button></div>`;
-    }
+  divFromHtml.innerHTML = array;
+};
 
-    divFromHtml.innerHTML =array;
-}
 
 function addToCart(pro){
+    alert("worked");
     var product =JSON.stringify(pro);
     var dataFromLs =JSON.parse(localStorage.getItem("userData"));
     var currentUser =JSON.parse(localStorage.getItem("currentUser"));
@@ -21,8 +23,8 @@ function addToCart(pro){
         var allUsers =[];
         for( var i=0; i<dataFromLs.length; i++){
             if(dataFromLs[i].email === currentUser["current-user-email"]){
-                var newObj =dataFromLs[i];
-                newObj["cartProducts"] =newObj["cartProducts"] || [];
+                var newObj = dataFromLs[i];
+                newObj["cartProducts"] = newObj["cartProducts"] || [];
                 newObj["cartProducts"].push(JSON.parse(product));
                 allUsers.push(newObj);
             }
@@ -30,6 +32,7 @@ function addToCart(pro){
                 allUsers.push(dataFromLs[i]);
             }
         }
+        // console.log()
         localStorage.setItem("userData",JSON.stringify(allUsers));
         alert("Product added to cart");
     }
