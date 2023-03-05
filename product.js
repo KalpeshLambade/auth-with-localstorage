@@ -5,7 +5,7 @@ window.onload = function(){
 
     var array =[];
 
-    for(var i=0;i<products.length; i++){
+    for(var i=0; i<products.length; i++){
         array += `<div><img src="${products[i].image}" alt="product-img"><h2>${products[i].name}</h2><p>${products[i].price}</p><button onclick="addToCart(${JSON.stringify(products[i])})">Add to cart</button></div>`;
     }
 
